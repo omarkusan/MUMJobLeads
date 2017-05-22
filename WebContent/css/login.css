@@ -1,0 +1,32 @@
+body {
+	margin: 0px;
+	padding: 0px;
+	background-color: #ededed;
+}
+
+#containerLogin {
+	display: block;
+	width: 800px;
+	margin: 100px auto auto auto;
+	padding: 0px;
+	background-color: white;
+	border: 5px solid white;
+	border-radius: 15px;
+}
+
+#loginSection {
+	display: inline-block;
+	float: left;
+	width: 50%;
+	padding: 20px;
+}
+
+#signupSection {
+	display: inline-block;
+	float: right;
+	width: 50%;
+	padding: 20px;
+}
+#forgot-password-link{
+	float: right;
+}
