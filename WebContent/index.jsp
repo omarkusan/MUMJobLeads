@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-<p>WAP Project! </p>
+<p>WAP Project!/p>
 </body>
 </html>
