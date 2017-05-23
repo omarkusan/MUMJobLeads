@@ -14,21 +14,33 @@
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
 	crossorigin="anonymous">
+<script src="https://code.jquery.com/jquery-3.2.1.min.js"
+	integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+	crossorigin="anonymous"></script>
+
 <style>
 html, body, h1, h2, h3, h4, h5 {
 	font-family: "Open Sans", sans-serif
 }
 </style>
+<script type="text/javascript">
+	$(function() {
+		$("#commentBtn100").click(function() {
+			if ($("#comment100").css("display") == "none") {
+				$("#comment100").css("display", "block");
+			} else
+				$("#comment100").css("display", "none");
+		});
+	});
+</script>
 <body class="w3-theme-l5">
 
 	<!-- Navbar -->
 	<div class="w3-top">
 		<div class="w3-bar w3-theme-d2 w3-right-align w3-large">
 			<div id="searchSection" class="form-group">
-			<div id="searchSection" class="form-group col-md-6">
 				<input type="text" class="form-group" placeholder="Search">
 			</div>
-
 			<div class="w3-dropdown-hover w3-hide-small  w3-right">
 				<button class="w3-button w3-padding-small" title="Sign-Out">
 					<img src="./images/profpic.jpg" class="w3-circle"
@@ -46,7 +58,6 @@ html, body, h1, h2, h3, h4, h5 {
 			</a>
 		</div>
 	</div>
-
 	<!-- Navbar on small screens -->
 	<div id="navDemo"
 		class="w3-bar-block w3-theme-d2 w3-hide w3-hide-large w3-hide-medium w3-large">
@@ -150,13 +161,18 @@ html, body, h1, h2, h3, h4, h5 {
 						class="w3-button w3-theme-d1 w3-margin-bottom">
 						<i class="fa fa-thumbs-up"></i>  Like
 					</button>
-					<button type="button"
+					<button type="button" id="commentBtn100"
 						class="w3-button w3-theme-d1 w3-margin-bottom">
 						<i class="fa fa-comment"></i>  Comment
 					</button>
 					<button type="button" class="w3-red w3-button w3-margin-bottom">
 						<i class="fa fa-remove"></i>  Delete
 					</button>
+					<div id="comment100" style="display: none">
+						<input type="text" placeholder="Add a comment">&nbsp;<input type="button" value="Send">
+						<hr>
+						<div id="commentShow100"></div>						
+					</div>
 				</div>
 
 				<div class="w3-container w3-card-2 w3-white w3-round w3-margin">

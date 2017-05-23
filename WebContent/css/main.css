@@ -612,10 +612,10 @@ a {
 		width: 8.33333%
 	}
 	.w3-col.m2 {
-		width: 16.66666%
+		width: 18.8333333%
 	}
 	.w3-col.m3, .w3-quarter {
-		width: 24.99999%
+		width: 22.833333%
 	}
 	.w3-col.m4, .w3-third {
 		width: 33.33333%
@@ -1639,3 +1639,13 @@ div#searchSection input {
 	margin: 0px;
 	font-size: 0.8em;
 }
+.displayNone{
+	display: none;
+}
+.displayShow{
+	display: block;
+}
+
+
+
+
