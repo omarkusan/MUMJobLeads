@@ -82,11 +82,14 @@ public class ConnectDB {
   
     public List<Posts> retrievePosts(int userid, int postType) {
     	List<Posts> posts = new ArrayList<Posts>();
-        String readQuery = 
-        		"select posts.*, count(likes.likeid) as likes, count(comments.commentid) comments, (select count(*) from likes where likes.postid = posts.postid and likes.userid = "+userid+") as isLiked " +
-				" from posts left join likes on posts.postid = likes.postid"+
-                " left join comments on posts.postid = comments.postid" + 
-				" where posttype = "+postType+";";
+        String readQuery =
+		        "select posts.*, " +
+		        "(select ifnull(count(likes.likeid),0) from likes where likes.postid = posts.postid) as likes, " +
+		        "(select ifnull(count(comments.commentid),0) from comments where comments.postid = posts.postid) as comments, " + 
+		        "ifnull((select count(*) from likes where likes.postid = posts.postid and likes.userid = 1),0) as isLiked  " +
+		        "from posts " +
+		        "where posttype = 1 " + 
+		        "order by posts.dateupdated desc; ";
         //String fullname = "No information found for the requested user: " + email;
         System.out.println(readQuery);
         try (Connection con = getConnection();
@@ -96,6 +99,8 @@ public class ConnectDB {
             	Posts post = new Posts(
             			rs.getInt("postid"), 
             			rs.getInt("userid"), 
+            			rs.getString("title"),
+            			rs.getString("location"),
             			rs.getString("post"), 
             			rs.getInt("posttype"),
             			rs.getDate("datecreated"), 
