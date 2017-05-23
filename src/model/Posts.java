@@ -12,6 +12,8 @@ public class Posts {
 	boolean isLiked;
 	boolean isOwn;
 	
+	public Posts(){}
+	
 	public Posts(int postid, int userid, String post, int posttype, Date datecreated, Date dateupdated, boolean isLiked, boolean isOwn) {
 		this.postid = postid;
 		this.userid = userid;
@@ -54,6 +56,29 @@ public class Posts {
 	public boolean isOwn() {
 		return isOwn;
 	}
-	  
+
+	public void setPostid(int postid) {
+		this.postid = postid;
+	}
+
+	public void setUserid(int userid) {
+		this.userid = userid;
+	}
+
+	public void setPost(String post) {
+		this.post = post;
+	}
+
+	public void setPosttype(int posttype) {
+		this.posttype = posttype;
+	}
+
+	public void setDatecreated(Date datecreated) {
+		this.datecreated = datecreated;
+	}
+
+	public void setDateupdated(Date dateupdated) {
+		this.dateupdated = dateupdated;
+	}
 	  
 }

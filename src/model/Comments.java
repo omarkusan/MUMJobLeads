@@ -11,6 +11,8 @@ public class Comments {
 	Date dateupdated;
 	boolean isOwn;
 	
+	public Comments(){}
+	
 	public Comments(int commentid, int userid, int postid, String comment, Date datecreated, Date dateupdated, boolean isOwn) {
 		this.commentid = commentid;
 		this.userid = userid;

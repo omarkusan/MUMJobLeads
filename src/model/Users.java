@@ -15,7 +15,9 @@ public class Users {
 	String password;
 	Date datecreated;
 	Date dateupdated;
-
+	
+	public Users(){}
+	
 	public Users(int userid, String fullname, int gender, String state, String city, String street, int zipcode,
 			int birthyear, String email, Date datecreated, Date dateupdated) {
 		this.userid = userid;
