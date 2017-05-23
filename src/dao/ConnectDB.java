@@ -84,9 +84,10 @@ public class ConnectDB {
     	List<Posts> posts = new ArrayList<Posts>();
         String readQuery = 
         		"select posts.*, count(likes.likeid) as likes, count(comments.commentid) comments, (select count(*) from likes where likes.postid = posts.postid and likes.userid = "+userid+") as isLiked " +
-				"from posts left join likes on posts.postid = likes.postid"+
-                "left join comments on posts.postid = comments.postid" + 
-				"where posttype = "+postType+";";
+				" from posts left join likes on posts.postid = likes.postid"+
+                " left join comments on posts.postid = comments.postid" + 
+				" where posttype = "+postType+";";
+        System.out.println(readQuery);
         //String fullname = "No information found for the requested user: " + email;
         try (Connection con = getConnection();
                 Statement stmt = con.createStatement();) {

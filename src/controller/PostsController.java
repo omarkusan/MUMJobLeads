@@ -17,7 +17,7 @@ import dao.ConnectDB;
 import model.Posts;
 
 @WebServlet("/posts")
-public class PostsController extends HttpServlet{
+public class PostsController extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -27,18 +27,23 @@ public class PostsController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		PrintWriter out = resp.getWriter();
-		
+		System.out.println("hello posts");
 		try {
 			ConnectDB db = new ConnectDB();
-			int posttype = Integer.parseInt(req.getAttribute("posttype").toString());
-			int userid = Integer.parseInt(req.getAttribute("userid").toString());
-			String jsonPosts = new Gson().toJson(db.retrievePosts(userid,posttype));
+			//int posttype = Integer.parseInt(req.getAttribute("posttype").toString());
+			//int userid = Integer.parseInt(req.getAttribute("userid").toString());
+			String jsonPosts = new Gson().toJson(db.retrievePosts(1,1));
 			
 			out.write(jsonPosts);
 		} catch (Exception e) {
 			out.write("Error on /posts " + e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
 	}
 }
 

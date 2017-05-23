@@ -12,7 +12,7 @@ import javax.servlet.http.HttpSession;
 import dao.ConnectDB;
 import model.Users;
 
-//@WebServlet("/login")
+@WebServlet("/login")
 public class CheckLogin extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
