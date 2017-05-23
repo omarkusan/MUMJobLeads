@@ -43,11 +43,8 @@ public class PostsController extends HttpServlet {
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-<<<<<<< HEAD
 		req.setAttribute("userid", 1);
 		req.setAttribute("posttype", 1);
-=======
->>>>>>> branch 'master' of https://github.com/omarkusan/MUMJobLeads.git
 		doPost(req, resp);
 	}
 }

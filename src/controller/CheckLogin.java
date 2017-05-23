@@ -1,19 +1,11 @@
 package controller;
 
 import java.io.IOException;
-
-<<<<<<< HEAD
-=======
-
->>>>>>> branch 'master' of https://github.com/omarkusan/MUMJobLeads.git
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
 import javax.servlet.FilterConfig;
 import javax.servlet.ServletException;
-<<<<<<< HEAD
-=======
 
->>>>>>> branch 'master' of https://github.com/omarkusan/MUMJobLeads.git
 import javax.servlet.ServletRequest;
 import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
