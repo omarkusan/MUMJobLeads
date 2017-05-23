@@ -17,7 +17,7 @@ import dao.ConnectDB;
 import model.Posts;
 
 @WebServlet("/posts")
-public class PostsController extends HttpServlet{
+public class PostsController extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -27,12 +27,12 @@ public class PostsController extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		
 		PrintWriter out = resp.getWriter();
-		
+		System.out.println("hello posts");
 		try {
 			ConnectDB db = new ConnectDB();
-			int posttype = Integer.parseInt(req.getAttribute("posttype").toString());
-			int userid = Integer.parseInt(req.getAttribute("userid").toString());
-			String jsonPosts = new Gson().toJson(db.retrievePosts(userid,posttype));
+			//int posttype = Integer.parseInt(req.getAttribute("posttype").toString());
+			//int userid = Integer.parseInt(req.getAttribute("userid").toString());
+			String jsonPosts = new Gson().toJson(db.retrievePosts(1,1));
 			
 			out.write(jsonPosts);
 		} catch (Exception e) {
@@ -43,8 +43,11 @@ public class PostsController extends HttpServlet{
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+<<<<<<< HEAD
 		req.setAttribute("userid", 1);
 		req.setAttribute("posttype", 1);
+=======
+>>>>>>> branch 'master' of https://github.com/omarkusan/MUMJobLeads.git
 		doPost(req, resp);
 	}
 }
