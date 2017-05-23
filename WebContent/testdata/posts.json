@@ -1,2 +1,26 @@
-[{"postid":1,"userid":1,"post":"test","posttype":1,"datecreated":"May 22, 2017","dateupdated":"May 22, 2017","isLiked":false,"isOwn":true},
-{"postid":1,"userid":1,"post":"test","posttype":1,"datecreated":"May 22, 2017","dateupdated":"May 22, 2017","isLiked":false,"isOwn":true}]
+[
+	{
+		"postid": 1,
+		"userid": 1,
+		"title": "title1",
+		"post": "test",
+		"posttype": 1,
+		"datecreated": "May 22, 2017",
+		"dateupdated": "May 22, 2017",
+		"location": "Fairfield IA",
+		"isLiked": false,
+		"isOwn": true
+	},
+	{
+		"postid": 1,
+		"userid": 1,
+		"title": "title2",
+		"post": "test",
+		"posttype": 1,
+		"datecreated": "May 22, 2017",
+		"dateupdated": "May 22, 2017",
+		"location": "San Francisco, CA",
+		"isLiked": false,
+		"isOwn": true
+	}
+]
