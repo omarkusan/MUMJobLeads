@@ -11,10 +11,12 @@ public class Posts {
 	Date dateupdated;
 	boolean isLiked;
 	boolean isOwn;
+	String title;
+	String location;
 	
 	public Posts(){}
 	
-	public Posts(int postid, int userid, String post, int posttype, Date datecreated, Date dateupdated, boolean isLiked, boolean isOwn) {
+	public Posts(int postid, int userid, String title, String location, String post, int posttype, Date datecreated, Date dateupdated, boolean isLiked, boolean isOwn) {
 		this.postid = postid;
 		this.userid = userid;
 		this.post = post;
@@ -23,6 +25,8 @@ public class Posts {
 		this.dateupdated = dateupdated;
 		this.isLiked = isLiked;
 		this.isOwn = isOwn;
+		this.title = title;
+		this.location = location;
 	}
 
 	public int getPostid() {
