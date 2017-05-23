@@ -10,9 +10,6 @@
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
   
-<<<<<<< HEAD
-  
-=======
 <!--   <filter>
     <filter-name>LoginFilter</filter-name>
     <filter-class>controller.LoginFilter</filter-class>
@@ -30,5 +27,4 @@
     <filter-name>login</filter-name>
     <url-pattern>/login</url-pattern>
   </filter-mapping> -->
->>>>>>> branch 'master' of https://github.com/omarkusan/MUMJobLeads.git
 </web-app>
