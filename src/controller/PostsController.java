@@ -40,6 +40,13 @@ public class PostsController extends HttpServlet{
 			e.printStackTrace();
 		}
 	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		req.setAttribute("userid", 1);
+		req.setAttribute("posttype", 1);
+		doPost(req, resp);
+	}
 }
 
 @WebServlet("/posts/update")

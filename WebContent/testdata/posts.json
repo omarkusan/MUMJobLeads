@@ -1,2 +1,1 @@
-[{"postid":1,"userid":1,"post":"test","posttype":1,"datecreated":"May 22, 2017","dateupdated":"May 22, 2017","isLiked":false,"isOwn":true},
-{"postid":1,"userid":1,"post":"test","posttype":1,"datecreated":"May 22, 2017","dateupdated":"May 22, 2017","isLiked":false,"isOwn":true}]
+[{"postid":2,"userid":2,"post":"test","posttype":1,"datecreated":"May 23, 2017","dateupdated":"May 23, 2017","isLiked":false,"isOwn":false},{"postid":3,"userid":1,"post":"test","posttype":1,"datecreated":"May 23, 2017","dateupdated":"May 23, 2017","isLiked":false,"isOwn":false},{"postid":1,"userid":1,"post":"test","posttype":1,"datecreated":"May 22, 2017","dateupdated":"May 22, 2017","isLiked":false,"isOwn":true}]
