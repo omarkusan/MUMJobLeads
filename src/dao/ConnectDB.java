@@ -65,7 +65,7 @@ public class ConnectDB {
             			rs.getString("city"), 
             			rs.getString("street"), 
             			rs.getInt("zipcode"), 
-            			rs.getInt("birthyear"), 
+            			rs.getString("birthyear"), 
             			rs.getString("email"),
             			rs.getDate("datecreated"), 
             			rs.getDate("dateupdated"));
@@ -191,7 +191,7 @@ public class ConnectDB {
 		statement.setString(4, user.getCity());
 		statement.setString(5, user.getStreet());
 		statement.setInt(6, user.getZipcode());
-		statement.setInt(7, user.getBirthyear());
+		statement.setString(7, user.getBirthyear());
 		statement.setString(8, user.getEmail());
 		statement.setString(9, user.getPassword());
 		/*statement.setDate(10, user.getDatecreated());
@@ -300,7 +300,7 @@ public class ConnectDB {
 		statement.setString(4, user.getCity());
 		statement.setString(5, user.getStreet());
 		statement.setInt(6, user.getZipcode());
-		statement.setInt(7, user.getBirthyear());
+		statement.setString(7, user.getBirthyear());
 		statement.setString(8, user.getEmail());
 		statement.setString(9, user.getPassword());
 		statement.setDate(10, user.getDatecreated());

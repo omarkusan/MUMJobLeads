@@ -10,7 +10,7 @@ public class Users {
 	String city;
 	String street;
 	int zipcode;
-	int birthyear;
+	String birthyear;
 	String email;
 	String password;
 	Date datecreated;
@@ -19,7 +19,7 @@ public class Users {
 	public Users(){}
 	
 	public Users(int userid, String fullname, int gender, String state, String city, String street, int zipcode,
-			int birthyear, String email, Date datecreated, Date dateupdated) {
+			String birthyear, String email, Date datecreated, Date dateupdated) {
 		this.userid = userid;
 		this.fullname = fullname;
 		this.gender = gender;
@@ -95,11 +95,11 @@ public class Users {
 		this.zipcode = zipcode;
 	}
 
-	public int getBirthyear() {
+	public String getBirthyear() {
 		return birthyear;
 	}
 
-	public void setBirthyear(int birthyear) {
+	public void setBirthyear(String birthyear) {
 		this.birthyear = birthyear;
 	}
 

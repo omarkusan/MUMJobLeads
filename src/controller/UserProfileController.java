@@ -30,9 +30,9 @@ public class UserProfileController extends HttpServlet{
 		PrintWriter out = resp.getWriter();
 		try {
 			Users user = new Users();
-			user.setBirthyear(Integer.parseInt(req.getAttribute("birthyear").toString()));
-			user.setDatecreated((java.sql.Date) (new Date()));
-			user.setDateupdated((java.sql.Date) (new Date()));
+			user.setBirthyear(req.getAttribute("year").toString() + "-" + req.getAttribute("month").toString() + "-"+ req.getAttribute("month").toString());
+			/*user.setDatecreated((java.sql.Date) (new Date()));
+			user.setDateupdated((java.sql.Date) (new Date()));*/
 			user.setStreet(req.getAttribute("street").toString());
 			user.setCity(req.getAttribute("city").toString());
 			user.setState(req.getAttribute("state").toString());
@@ -46,6 +46,7 @@ public class UserProfileController extends HttpServlet{
 				ConnectDB db = new ConnectDB();
 				db.insertUserInfo(user);
 				out.write("successful");
+				resp.sendRedirect("../main.html");
 			} catch (SQLException e) {
 				// TODO Auto-generated catch block
 				out.write("Error: when insert comment. Error message is " + e.getMessage());
@@ -72,7 +73,7 @@ class UpdateUserInfo extends HttpServlet{
 		try {
 			Users user = new Users();
 			user.setUserid(Integer.parseInt(req.getAttribute("userid").toString()));
-			user.setBirthyear(Integer.parseInt(req.getAttribute("birthyear").toString()));
+			user.setBirthyear(req.getAttribute("year").toString() + "-" + req.getAttribute("month").toString() + "-"+ req.getAttribute("month").toString());
 			//user.setDateupdated((java.sql.Date) (new Date()));
 			user.setStreet(req.getAttribute("street").toString());
 			user.setCity(req.getAttribute("city").toString());
