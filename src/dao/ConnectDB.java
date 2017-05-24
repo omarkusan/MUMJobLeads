@@ -243,6 +243,7 @@ public class ConnectDB {
     	String sql = "INSERT INTO Posts(userid,post,title,location,posttype,datecreated,dateupdated) values(?,?,?,?,?,?,?)";
     	PreparedStatement statement = (PreparedStatement)getConnection().prepareStatement(sql);
     	
+    	
     	statement.setInt(1, post.getUserid());
     	statement.setString(2, post.getPost());
     	statement.setString(3, post.getTitle());
