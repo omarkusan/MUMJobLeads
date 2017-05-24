@@ -240,14 +240,14 @@ public class ConnectDB {
 
     public boolean insertPost(Posts post) throws SQLException{
     	
-    	String sql = "INSERT INTO Posts(userid,post,posttype) values(?,?,?)";
+    	String sql = "INSERT INTO Posts(userid,post,posttype,datecreated,dateupdated) values(?,?,?,?,?)";
     	PreparedStatement statement = (PreparedStatement)getConnection().prepareStatement(sql);
     	
     	statement.setInt(1, post.getUserid());
     	statement.setString(2, post.getPost());
     	statement.setInt(3, post.getPosttype());
-    	/*statement.setDate(4, post.getDatecreated());
-    	statement.setDate(5, post.getDateupdated());*/
+    	statement.setDate(4, post.getDatecreated());
+    	statement.setDate(5, post.getDateupdated());
     	
     	if(statement.executeUpdate() > 0)
     		return true;
