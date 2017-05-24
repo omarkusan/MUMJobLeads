@@ -13,7 +13,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import dao.ConnectDB;
 import model.Posts;
-import java.time.LocalDate;
 
 @WebServlet("/posts/insert")
 public class PostsInsertController extends HttpServlet {
