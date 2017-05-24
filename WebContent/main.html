@@ -71,10 +71,9 @@ html, body, h1, h2, h3, h4, h5 {
 			posts = JSON.parse(xmlhttp.responseText);
 			for (x in posts) {
 				counter += 1;
-				txt += "<div class='w3-container w3-card-2 w3-white w3-round w3-margin'><br><img src='"+ posts[x].userpic +"' alt='Avatar' class='w3-left w3-circle w3-margin-right' style='width: 60px'><span class='w3-right w3-opacity'>"
+				txt += "<div class='w3-container w3-card-2 w3-white w3-round w3-margin'><br><img src='./Bilguun.jpg' alt='Avatar' class='w3-left w3-circle w3-margin-right' style='width: 60px'><span class='w3-right w3-opacity'>"
 						+ posts[x].datecreated + "</span>";
-				txt += "<h4>" + posts[x].username
-						+ "</h4><br><hr class='w3-clear'><h4>" + posts[x].title
+				txt += "<h4>Bilguun Azjargalbayar</h4><br><hr class='w3-clear'><h4>" + posts[x].title
 						+ "</h4><p>" + posts[x].post + "</p>";
 				txt += "<p><a href='#'><i class='fa fa-map-marker'></i>&nbsp;&nbsp;<span>"
 						+ posts[x].location + "</span></a></p>";
@@ -84,7 +83,7 @@ html, body, h1, h2, h3, h4, h5 {
 		}
 	};
 
-	xmlhttp.open("GET", "./testdata/posts.json", true);
+	xmlhttp.open("POST", "posts", true);
 	xmlhttp.send();
 </script>
 <body class="w3-theme-l5">
@@ -95,7 +94,6 @@ html, body, h1, h2, h3, h4, h5 {
 			<div id="searchSection">
 				<input type="text" placeholder="Search">
 			</div>
-<<<<<<< HEAD
 			<div id="menuBtns">
 				<div id="empSeekSection">
 					<button type="button">
@@ -107,8 +105,6 @@ html, body, h1, h2, h3, h4, h5 {
 						<i class="fa fa-search-plus"></i>&nbsp;&nbsp;SEEKERS
 					</button>
 				</div>
-			<div id="searchSection" >
-				<input type="text" placeholder="Search">
 			</div>
 			<div id="searchSection">
 				<input type="text" placeholder="Search">
