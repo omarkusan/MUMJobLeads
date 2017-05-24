@@ -20,8 +20,11 @@
 <link rel="stylesheet" type="text/css" href="css/mapdialog.css"/>
 </head>
 <body>
-<a href="#openModal">My Map</a>
-
+<a href="#openModal" class="location">Fairfield IA</a><br>
+<a href="#openModal" class="location">Urumqi China</a><br>
+<a href="#openModal" class="location">London UK</a><br>
+<a href="#openModal" class="location">Tokya Japan</a><br>
+<a href="#" >Tokya Japan</a><br>
 	<div id="openModal" class="modalDialog">
 		<div>
 			<a href="#close" title="Close" class="close">X</a>
