@@ -5,10 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="./css/main.css">
 <link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<link rel="stylesheet"
 	href="https://www.w3schools.com/lib/w3-theme-blue-grey.css">
 <link rel="stylesheet"
 	href='https://fonts.googleapis.com/css?family=Open+Sans'>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
 	integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
@@ -26,9 +31,33 @@ html, body, h1, h2, h3, h4, h5 {
 	$(function() {
 		$("#commentBtn100").click(function() {
 			if ($("#comment100").css("display") == "none") {
-				$("#comment100").css("display", "block");
+				$("#comment100").css({
+					"display" : "block",
+					"transition" : "opacity 1s ease-out",
+					"opacity" : 1,
+				});
 			} else
-				$("#comment100").css("display", "none");
+				$("#comment100").css({
+					"display" : "none",
+					"transition" : "opacity 1s ease-out",
+					"opacity" : 0,
+				});
+		});
+		$("#createPost").click(function() {
+			$("#newPost").css({
+				"display" : "block"
+			});
+			$("#createPost").css({
+				"display" : "none"
+			});
+		});
+		$("#cancelPost").click(function() {
+			$("#newPost").css({
+				"display" : "none"
+			});
+			$("#createPost").css({
+				"display" : "block"
+			});
 		});
 	});
 </script>
@@ -36,15 +65,21 @@ html, body, h1, h2, h3, h4, h5 {
 <script>
 	var xmlhttp = new XMLHttpRequest(), json;
 	var x, txt = "";
+	var counter = 0;
 	xmlhttp.onreadystatechange = function() {
 		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
 			posts = JSON.parse(xmlhttp.responseText);
-			for(x in posts){
-				txt += "<div class='w3-container w3-card-2 w3-white w3-round w3-margin'><br><img src='"+ posts[x].userpic +"' alt='Avatar' class='w3-left w3-circle w3-margin-right' style='width: 60px'><span class='w3-right w3-opacity'>"+posts[x].datecreated+"</span>";
-				txt += "<h4>" + posts[x].username + "</h4><br><hr class='w3-clear'><h4>"+posts[x].title+"</h4><p>" + posts[x].post +"</p>";
-				txt += "<p><a href='#'><i class='fa fa-map-marker'></i>&nbsp;&nbsp;<span>"+ posts[x].location +"</span></a></p>";
-				txt += "<button type='button' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-thumbs-up'></i> Like </button><button type='button' id='commentBtn100'	class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-comment'></i>  Comment</button><button type='button' class='w3-red w3-button w3-margin-bottom'><i class='fa fa-remove'></i>  Delete	</button><div id='comment100' style='display: none'><input type='text' placeholder='Add a comment'>&nbsp;<input	type='button' value='Send'>	<hr><div id='commentShow100'></div>	</div>	</div>";
-				}
+			for (x in posts) {
+				counter += 1;
+				txt += "<div class='w3-container w3-card-2 w3-white w3-round w3-margin'><br><img src='"+ posts[x].userpic +"' alt='Avatar' class='w3-left w3-circle w3-margin-right' style='width: 60px'><span class='w3-right w3-opacity'>"
+						+ posts[x].datecreated + "</span>";
+				txt += "<h4>" + posts[x].username
+						+ "</h4><br><hr class='w3-clear'><h4>" + posts[x].title
+						+ "</h4><p>" + posts[x].post + "</p>";
+				txt += "<p><a href='#'><i class='fa fa-map-marker'></i>&nbsp;&nbsp;<span>"
+						+ posts[x].location + "</span></a></p>";
+				txt += "<button type='button' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-thumbs-up'></i> Like </button><button type='button' id='commentBtn100" + counter + "' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-comment'></i>  Comment</button><button type='button' class='w3-red w3-button w3-margin-bottom'><i class='fa fa-remove'></i>  Delete	</button><div id='comment100' style='display: none'><input type='text' placeholder='Add a comment'>&nbsp;<input	type='button' value='Send'>	<hr><div id='commentShow100" + counter + "'></div>	</div>	</div>";
+			}
 			document.getElementById("feed").innerHTML = txt;
 		}
 	};
@@ -57,8 +92,14 @@ html, body, h1, h2, h3, h4, h5 {
 	<!-- Navbar -->
 	<div class="w3-top">
 		<div class="w3-bar w3-theme-d2 w3-right-align w3-large">
-			<div id="searchSection" class="form-group">
-				<input type="text" class="form-group" placeholder="Search">
+			<div id="searchSection">
+				<input type="text" placeholder="Search">
+			</div>
+			<div id="searchSection" >
+				<input type="text" placeholder="Search">
+			</div>
+			<div id="searchSection">
+				<input type="text" placeholder="Search">
 			</div>
 			<div class="w3-dropdown-hover w3-hide-small  w3-right">
 				<button class="w3-button w3-padding-small" title="Sign-Out">
@@ -66,8 +107,8 @@ html, body, h1, h2, h3, h4, h5 {
 						style="height: 41px; width: 41px" alt="Avatar">
 				</button>
 				<div class="w3-dropdown-content w3-card-4 w3-bar-block">
-					<a href="#" class="w3-bar-item w3-button">
-						<i class="fa fa-sign-in"></i>
+					<a href="#" class="w3-bar-item w3-button"> <i
+						class="fa fa-sign-in"></i>
 					</a>
 				</div>
 			</div>
@@ -106,8 +147,9 @@ html, body, h1, h2, h3, h4, h5 {
 						<hr>
 						<p id="fullname">
 							Bilguun Azjargalbayar <a href="#" id="editProfile"
-								title="Edit Profile"><i
-								class="fa fa-wrench fa-fw w3-margin-right w3-text-theme"></i></a>
+								title="Edit Profile"> <i
+								class="fa fa-wrench fa-fw w3-margin-right w3-text-theme"></i>
+							</a>
 
 						</p>
 						<p>
@@ -146,18 +188,49 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-col m12">
 						<div class="w3-card-2 w3-round w3-white">
 							<div class="w3-container w3-padding">
-								<h6 class="w3-opacity">Create a Post</h6>
-								<p contenteditable="true" class="w3-border w3-padding"></p>
-								<button type="button" class="w3-button w3-theme">
-									<i class="fa fa-pencil"></i>  Post
+								<div id="newPost" style="display: none">
+									<form action="posts/insert" method="post">
+										<h4>New Post</h4>
+										<p>
+											<input type="text" name="title" placeholder="Title" size="30"
+												required>
+										</p>
+										<p>
+											<textarea rows="4" cols="50" name="post"
+												placeholder="Content" style="resize: none" required></textarea>
+										</p>
+										<p>
+											<input type="text" name="location" placeholder="Location"
+												size="30" required>
+										</p>
+										<p>
+											<input type="text" name="userid" placeholder="Location"
+												size="30" value="1" required>
+										</p>
+										<p>
+											<input type="text" name="posttype" placeholder="Location"
+												size="30" value="1" required>
+										</p>
+										<button type="submit" id="publishPost"
+											class="w3-button w3-theme">
+											<i class="fa fa-newspaper-o"></i>&nbsp;&nbsp;Post it on wall
+										</button>
+										<button type="button" id="cancelPost" class="w3-button w3-red">
+											<i class="fa fa-remove"></i>&nbsp;&nbsp;Cancel
+										</button>
+									</form>
+								</div>
+								<button type="button" id="createPost" class="w3-button w3-theme">
+									<i class="fa fa-pencil"></i>&nbsp;&nbsp;Create a Post
 								</button>
+
 							</div>
 						</div>
 					</div>
 				</div>
 
 				<div id="feed"></div>
-				
+
 				<!-- End Middle Column -->
 			</div>
 
@@ -211,7 +284,9 @@ html, body, h1, h2, h3, h4, h5 {
 
 	<!-- Footer -->
 	<footer class="w3-container w3-theme-d5">
-		<p>Project of</p>
+		<p>
+			<br>Project of
+		</p>
 		<img src="./images/Altangerel.jpg" class="w3-circle"
 			style="height: 41px; width: 41px" alt="Altangerel"> <img
 			src="./images/Bilguun.jpg" class="w3-circle"

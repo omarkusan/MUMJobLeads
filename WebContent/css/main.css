@@ -1641,11 +1641,17 @@ div#searchSection input {
 }
 .displayNone{
 	display: none;
+	transition: opacity 1s ease-out;
+    opacity: 0; 
 }
 .displayShow{
 	display: block;
+	opacity: 1;
 }
-
+#createPost{
+	display:block;
+	width: 100%;
+}
 
 
 
