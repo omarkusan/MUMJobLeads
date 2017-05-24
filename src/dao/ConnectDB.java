@@ -194,8 +194,8 @@ public class ConnectDB {
 		statement.setInt(7, user.getBirthyear());
 		statement.setString(8, user.getEmail());
 		statement.setString(9, user.getPassword());
-		statement.setDate(10, user.getDatecreated());
-		statement.setDate(11, user.getDateupdated());
+		/*statement.setDate(10, user.getDatecreated());
+		statement.setDate(11, user.getDateupdated());*/
 		int rowsUpdated = statement.executeUpdate();
 		if (rowsUpdated > 0) {
 		    return true;

@@ -73,7 +73,7 @@ class UpdateUserInfo extends HttpServlet{
 			Users user = new Users();
 			user.setUserid(Integer.parseInt(req.getAttribute("userid").toString()));
 			user.setBirthyear(Integer.parseInt(req.getAttribute("birthyear").toString()));
-			user.setDateupdated((java.sql.Date) (new Date()));
+			//user.setDateupdated((java.sql.Date) (new Date()));
 			user.setStreet(req.getAttribute("street").toString());
 			user.setCity(req.getAttribute("city").toString());
 			user.setState(req.getAttribute("state").toString());
