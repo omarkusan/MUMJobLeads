@@ -20,7 +20,7 @@ import model.Users;
 public class ConnectDB {
 
     private static ConnectDB instance = new ConnectDB();
-    public static final String URL = "jdbc:mysql://localhost:3306/carpoolingdb?useSSL=false";
+    public static final String URL = "jdbc:mysql://10.10.11.66:3306/carpoolingdb?useSSL=false";
     public static final String USER = "root";
     public static final String PASSWORD = "root123";
     public static final String DRIVER_CLASS = "com.mysql.jdbc.Driver";

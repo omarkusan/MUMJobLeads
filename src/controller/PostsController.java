@@ -25,22 +25,24 @@ public class PostsController extends HttpServlet {
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		PrintWriter out = resp.getWriter();
 		System.out.println("hello posts");
 		try {
 			ConnectDB db = new ConnectDB();
-			//int posttype = Integer.parseInt(req.getAttribute("posttype").toString());
-			//int userid = Integer.parseInt(req.getAttribute("userid").toString());
-			String jsonPosts = new Gson().toJson(db.retrievePosts(1,1));
-			
+			// int posttype =
+			// Integer.parseInt(req.getAttribute("posttype").toString());
+			// int userid =
+			// Integer.parseInt(req.getAttribute("userid").toString());
+			String jsonPosts = new Gson().toJson(db.retrievePosts(1, 1));
+
 			out.write(jsonPosts);
 		} catch (Exception e) {
 			out.write("Error on /posts " + e.getMessage());
 			e.printStackTrace();
 		}
 	}
-	
+
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		req.setAttribute("userid", 1);
@@ -50,7 +52,7 @@ public class PostsController extends HttpServlet {
 }
 
 @WebServlet("/posts/update")
-class UpdatePost extends HttpServlet{
+class UpdatePost extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -58,19 +60,20 @@ class UpdatePost extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		PrintWriter out = resp.getWriter();
-		
+
 		try {
 			Posts post = new Posts();
-			post.setPost(req.getAttribute("post").toString());;
+			post.setPost(req.getAttribute("post").toString());
+			;
 			post.setDateupdated((java.sql.Date) (new Date()));
 			post.setPosttype(Integer.parseInt(req.getAttribute("posttype").toString()));
 			post.setUserid(Integer.parseInt(req.getAttribute("userid").toString()));
 			post.setPostid(Integer.parseInt(req.getAttribute("userid").toString()));
-			
-			//ConnectDB db = new ConnectDB();
-			//db.up(post);
+
+			// ConnectDB db = new ConnectDB();
+			// db.up(post);
 			out.write("successful");
 		} catch (Exception e) {
 			out.write("Error on /posts/update " + e.getMessage());
@@ -80,7 +83,7 @@ class UpdatePost extends HttpServlet{
 }
 
 @WebServlet("/posts/delete")
-class DeletePost extends HttpServlet{
+class DeletePost extends HttpServlet {
 	/**
 	 * 
 	 */
@@ -88,13 +91,13 @@ class DeletePost extends HttpServlet{
 
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
 		PrintWriter out = resp.getWriter();
-		
+
 		try {
 			int postId = Integer.parseInt(req.getAttribute("postid").toString());
 			int userId = Integer.parseInt(req.getAttribute("userid").toString());
-			
+
 			try {
 				ConnectDB db = new ConnectDB();
 				db.deletePost(postId, userId);
@@ -112,17 +115,22 @@ class DeletePost extends HttpServlet{
 }
 
 @WebServlet("/posts/insert")
-class InsertPost extends HttpServlet{
+class InsertPost extends HttpServlet {
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -131173447424919004L;
 
+	public InsertPost() {
+
+	}
+
 	@Override
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-		
+
+		System.out.println("hi");
 		PrintWriter out = resp.getWriter();
-		
+
 		try {
 			Posts post = new Posts();
 			post.setPost(req.getAttribute("post").toString());
@@ -132,8 +140,7 @@ class InsertPost extends HttpServlet{
 			post.setUserid(Integer.parseInt(req.getAttribute("userid").toString()));
 			post.setTitle(req.getAttribute("title").toString());
 			post.setLocation(req.getAttribute("location").toString());
-			
-			
+
 			try {
 				ConnectDB db = new ConnectDB();
 				db.insertPost(post);
