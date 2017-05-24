@@ -125,11 +125,13 @@ class InsertPost extends HttpServlet{
 		
 		try {
 			Posts post = new Posts();
-			post.setPost(req.getAttribute("post").toString());;
+			post.setPost(req.getAttribute("post").toString());
 			post.setDatecreated((java.sql.Date) (new Date()));
 			post.setDateupdated((java.sql.Date) (new Date()));
 			post.setPosttype(Integer.parseInt(req.getAttribute("posttype").toString()));
 			post.setUserid(Integer.parseInt(req.getAttribute("userid").toString()));
+			post.setTitle(req.getAttribute("title").toString());
+			post.setLocation(req.getAttribute("location").toString());
 			
 			
 			try {
