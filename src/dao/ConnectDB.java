@@ -50,8 +50,8 @@ public class ConnectDB {
     
     /*******select**********/
     
-    public Users retrieveUserInfo(String email, String password) {
-        String readQuery = "SELECT * from users where email = '" + email + "' and password = '"+password+"';";
+    public Users retrieveUserInfo(String email) {
+        String readQuery = "SELECT * from users where email = '" + email + "'";// and password = '"+password+"';";
         //String fullname = "No information found for the requested user: " + email;
         Users user = null;
         try (Statement stmt = getConnection().createStatement()) {

@@ -26,15 +26,17 @@ public class CheckLogin extends HttpServlet {
 		String email = req.getParameter("email");
 		String password = req.getParameter("password");
 		ConnectDB db = new ConnectDB();
-		Users user = db.retrieveUserInfo(email, password);
+		Users user = db.retrieveUserInfo(email);
 		if(user != null){
 			System.out.println("logged");
 			HttpSession session=req.getSession();  
 	        session.setAttribute("userid",user.getUserid());
+	        session.setAttribute("email",user.getEmail());
 	        LoginSession.addSession(session);
 	        req.setAttribute("message", "Welcome MUMJobLeadsProject");
 	        req.setAttribute("status", true);
 	        req.setAttribute("session", session);
+	        req.setAttribute("email", user.getEmail());
 	        resp.sendRedirect("main.html");
 	        //req.getRequestDispatcher("main.html");
 		}

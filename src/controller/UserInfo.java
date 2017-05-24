@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.google.gson.Gson;
 
@@ -24,15 +25,21 @@ public class UserInfo extends HttpServlet{
 	protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 		PrintWriter out = resp.getWriter();
 		try {
-			String email = req.getAttribute("email").toString();
-			String password = req.getAttribute("password").toString();
+			HttpSession session = req.getSession(false);
+			String email = session.getAttribute("email").toString();
+			//String password = req.getAttribute("password").toString();
 			ConnectDB db = new ConnectDB();
-			String users = new Gson().toJson(db.retrieveUserInfo(email, password));
-			out.write("users");
+			String users = new Gson().toJson(db.retrieveUserInfo(email));
+			out.write(users);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
-			out.write("Error on userinfo/insert" + e.getMessage());
+			out.write("Error on userinfo/get" + e.getMessage());
 			e.printStackTrace();
 		}
+	}
+	
+	@Override
+	protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+		doPost(req, resp);
 	}
 }
