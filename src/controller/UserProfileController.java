@@ -30,7 +30,7 @@ public class UserProfileController extends HttpServlet{
 		PrintWriter out = resp.getWriter();
 		try {
 			Users user = new Users();
-			user.setBirthyear(req.getAttribute("year").toString() + "-" + req.getAttribute("month").toString() + "-"+ req.getAttribute("month").toString());
+			user.setBirthyear(req.getAttribute("year").toString() + "-" + req.getAttribute("month").toString() + "-"+ req.getAttribute("day").toString());
 			/*user.setDatecreated((java.sql.Date) (new Date()));
 			user.setDateupdated((java.sql.Date) (new Date()));*/
 			user.setStreet(req.getAttribute("street").toString());
@@ -73,7 +73,7 @@ class UpdateUserInfo extends HttpServlet{
 		try {
 			Users user = new Users();
 			user.setUserid(Integer.parseInt(req.getAttribute("userid").toString()));
-			user.setBirthyear(req.getAttribute("year").toString() + "-" + req.getAttribute("month").toString() + "-"+ req.getAttribute("month").toString());
+			user.setBirthyear(req.getAttribute("year").toString() + "-" + req.getAttribute("month").toString() + "-"+ req.getAttribute("day").toString());
 			//user.setDateupdated((java.sql.Date) (new Date()));
 			user.setStreet(req.getAttribute("street").toString());
 			user.setCity(req.getAttribute("city").toString());
