@@ -59,32 +59,27 @@ html, body, h1, h2, h3, h4, h5 {
 				"display" : "block"
 			});
 		});
-	});
-</script>
-<!-- get post from Json file -->
-<script>
-	var xmlhttp = new XMLHttpRequest(), json;
-	var x, txt = "";
-	var counter = 0;
-	xmlhttp.onreadystatechange = function() {
-		if (xmlhttp.readyState === 4 && xmlhttp.status === 200) {
-			posts = JSON.parse(xmlhttp.responseText);
-			for (x in posts) {
+		
+		$.ajax("posts", {
+			"type": "POST",
+			dataType: "json"
+		}).done(function(data){
+			var x, txt = "";
+			var counter = 0;
+			for(var i =0; i < data.length-1; i++)
+			{
 				counter += 1;
-				txt += "<div class='w3-container w3-card-2 w3-white w3-round w3-margin'><br><img src='./Bilguun.jpg' alt='Avatar' class='w3-left w3-circle w3-margin-right' style='width: 60px'><span class='w3-right w3-opacity'>"
-						+ posts[x].datecreated + "</span>";
-				txt += "<h4>Bilguun Azjargalbayar</h4><br><hr class='w3-clear'><h4>" + posts[x].title
-						+ "</h4><p>" + posts[x].post + "</p>";
+				txt += "<div class='w3-container w3-card-2 w3-white w3-round w3-margin'><br><img src='./images/avatar.jpg' alt='Avatar' class='w3-left w3-circle w3-margin-right' style='width: 60px'><span class='w3-right w3-opacity'>"
+						+ data[i].datecreated + "</span>";
+				txt += "<h4>Bilguun Azjargalbayar</h4><br><hr class='w3-clear'><h4>" + data[i].title
+						+ "</h4><p>" + data[i].post + "</p>";
 				txt += "<p><a href='#'><i class='fa fa-map-marker'></i>&nbsp;&nbsp;<span>"
-						+ posts[x].location + "</span></a></p>";
+						+ data[i].location + "</span></a></p>";
 				txt += "<button type='button' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-thumbs-up'></i> Like </button><button type='button' id='commentBtn100" + counter + "' class='w3-button w3-theme-d1 w3-margin-bottom'><i class='fa fa-comment'></i>  Comment</button><button type='button' class='w3-red w3-button w3-margin-bottom'><i class='fa fa-remove'></i>  Delete	</button><div id='comment100' style='display: none'><input type='text' placeholder='Add a comment'>&nbsp;<input	type='button' value='Send'>	<hr><div id='commentShow100" + counter + "'></div>	</div>	</div>";
 			}
 			document.getElementById("feed").innerHTML = txt;
-		}
-	};
-
-	xmlhttp.open("POST", "posts", true);
-	xmlhttp.send();
+		});
+	});
 </script>
 <body class="w3-theme-l5">
 
@@ -149,12 +144,11 @@ html, body, h1, h2, h3, h4, h5 {
 					<div class="w3-container">
 						<h4 class="w3-center">My Profile</h4>
 						<p class="w3-center">
-							<img src="./images/profpic.jpg" class="w3-circle"
+							<img src="./images/avatar.jpg" class="w3-circle"
 								style="height: 106px; width: 106px" alt="Avatar">
 						</p>
 						<hr>
-						<p id="fullname">
-							Bilguun Azjargalbayar <a href="#" id="editProfile"
+						<p id="fullname"><span id="getFullname"></span><a href="#" id="editProfile"
 								title="Edit Profile"> <i
 								class="fa fa-wrench fa-fw w3-margin-right w3-text-theme"></i>
 							</a>
